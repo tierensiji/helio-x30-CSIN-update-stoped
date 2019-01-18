@@ -1,6 +1,7 @@
 # helio-x30-interactive-sched
 helio x30的调度优化和省电脚本
 魅族pro7H节能优化手册
+
 一、	使用前的准备
 1、	软件：①tasker（或者镧工具箱2.0）②绿色守护③freezeyou!④禁用服务⑤block⑥autostarts⑦root explorer（主要是用来找文件路径，不是必须的）⑧supersu#⑨哔哩哔哩或者百度百家号（视频教程我发在上面了）⑩酷安（你能找到上述所有软件）
 2、	文件：链接:https://pan.baidu.com/s/1OcfChPBCpVndXSeMyR4oHA 密码:nk4y
