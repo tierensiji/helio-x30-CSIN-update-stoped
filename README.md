@@ -88,7 +88,7 @@ helio x30的调度优化和省电脚本
 ③哔哩哔哩：老司机666野司机
 ④GitHub：https://github.com/tierensiji/helio-x30-interactive-sched
 ⑤CSDN：铁人司机https://blog.csdn.net/weixin_44305925/article/details/86537823
-⑦微信公众号：红瑾天科技工作室
+⑥微信公众号：红瑾天科技工作室
 
 By 铁人司机
 
