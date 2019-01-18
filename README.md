@@ -6,7 +6,9 @@ helio x30的调度优化和省电脚本
 
 1、	软件：①tasker（或者镧工具箱2.0）②绿色守护③freezeyou!④禁用服务⑤block⑥autostarts⑦root explorer（主要是用来找文件路径，不是必须的）⑧supersu#⑨哔哩哔哩或者百度百家号（视频教程我发在上面了）⑩酷安（你能找到上述所有软件）
 
-2、	文件：链接:https://pan.baidu.com/s/1OcfChPBCpVndXSeMyR4oHA 密码:nk4y
+2、	文件：①链接:https://pan.baidu.com/s/1OcfChPBCpVndXSeMyR4oHA 密码:nk4y
+②https://github.com/tierensiji/helio-x30-interactive-sched
+③ https://download.csdn.net/download/weixin_44305925/10925444
 
 3、	知识：一部分Linux命令和shell命令，主要是cd,cat,chmod,echo
 
