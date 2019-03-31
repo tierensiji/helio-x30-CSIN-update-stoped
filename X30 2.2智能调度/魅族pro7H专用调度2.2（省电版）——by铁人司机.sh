@@ -23,29 +23,29 @@ echo interactive > /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor
 echo interactive > /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor
 echo interactive > /sys/devices/system/cpu/cpu8/cpufreq/scaling_governor
 echo interactive > /sys/devices/system/cpu/cpu9/cpufreq/scaling_governor
-chmod 0666 /sys/devices/system/cpu/cpufreq/policy8/scaling_min_freq
-chmod 0666 /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
-chmod 0666 /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-chmod 0666 /sys/devices/system/cpu/power/autosuspend_delay_ms
+chmod 0777 /sys/devices/system/cpu/cpufreq/policy8/scaling_min_freq
+chmod 0777 /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
+chmod 0777 /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+chmod 0777 /sys/devices/system/cpu/power/autosuspend_delay_ms
 echo 328000 > /sys/devices/system/cpu/cpufreq/policy8/scaling_min_freq
 echo 279000 > /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
 echo 249000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 echo 100 > /sys/devices/system/cpu/power/autosuspend_delay_ms
 #调节interactive调度器具体参数
 chmod 0666 /sys/devices/system/cpu/cpufreq/interactive/boost
-echo 1 > /sys/devices/system/cpu/cpufreq/interactive/boost
+echo 0 > /sys/devices/system/cpu/cpufreq/interactive/boost
 #调节升频时延
 chmod 0666 /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-echo "18000 1145000:58000 1237000:18000 1347000:58000 1421000:38000 1512000:58000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
+echo "48000 1145000:58000 1237000:68000 1347000:78000 1421000:98000 1512000:108000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
 #调节升频频率
 chmod 0666 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
 echo 1237000 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
 #调节升频所需负载条件
 chmod 0777 /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_freq
-echo 95 > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_freq
+echo 98 > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_freq
 #调节最小降频间隔
 chmod 0666 /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
-echo 8000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
+echo 2000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
 #调节负载频率对应关系
 chmod 0777 /sys/devices/system/cpu/cpufreq/interactive/target_loads
 echo "15 249000:25 449000:30 648000:50 1005000:70 1237000:85 1512000:91 1678000:99 50 1324000:70 1571000:85 1917000:91 2197000:99 50 1766000:70 2057000:85 2450000:91 2600000:99" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
@@ -53,17 +53,17 @@ echo "15 249000:25 449000:30 648000:50 1005000:70 1237000:85 1512000:91 1678000:
 #调节CPU负载采样间隔
 chmod 0666 /sys/devices/system/cpu/cpufreq/interactive/timer_slack
 chmod 0666 /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/timer_slack
-echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/timer_rate
+echo 100000 > /sys/devices/system/cpu/cpufreq/interactive/timer_slack
+echo 100000 > /sys/devices/system/cpu/cpufreq/interactive/timer_rate
 #开启CPU提升I/O性能
 chmod 0777 /sys/devices/system/cpu/cpufreq/io_is_busy
-echo 1 > /sys/devices/system/cpu/cpufreq/io_is_busy
+echo 0 > /sys/devices/system/cpu/cpufreq/io_is_busy
 
 
 #开启hps_eas动态调节
 echo 1 > /proc/hps/eas_enabled
 #限制基本核心数量
-chmod 0666 /proc/hps/num_base_perf_serv
+chmod 0777 /proc/hps/num_base_perf_serv
 echo "3 3 1" > /proc/hps/num_base_perf_serv
 #限制boost核心数量
 chmod 0666 /proc/hps/input_boost_cpu_num
@@ -73,10 +73,10 @@ echo 1 > /proc/hps/input_boost_cpu_num
 echo 0 > /proc/hps/big_task_enabled
 echo 0 > /proc/hps/heavy_task_enabled
 #设置降频阈值
-chmod 0666 /proc/hps/down_threshold
+chmod 0777 /proc/hps/down_threshold
 echo 80 > /proc/hps/down_threshold
 #设置降频积极度（千万不能为零，不然重启……）
-chmod 0666 /proc/hps/down_times
+chmod 0777 /proc/hps/down_times
 echo 4 > /proc/hps/down_times
 #设置升频阈值
 chmod 0666 /proc/hps/up_threshold
@@ -112,18 +112,18 @@ echo 0 > /proc/cpufreq/MT_CPU_DVFS_CCL/cpufreq_sched_disable
 echo 0 > /proc/cpufreq/MT_CPU_DVFS_L/cpufreq_sched_disable
 echo 0 > /proc/cpufreq/MT_CPU_DVFS_LL/cpufreq_sched_disable
 #设置升频阈值
-chmod 0666 /proc/cpufreq/cpufreq_up_threshold_b
-chmod 0666 /proc/cpufreq/cpufreq_up_threshold_l
-chmod 0666 /proc/cpufreq/cpufreq_up_threshold_ll
-echo 95 > /proc/cpufreq/cpufreq_up_threshold_b
-echo 95 > /proc/cpufreq/cpufreq_up_threshold_l
-echo 95 > /proc/cpufreq/cpufreq_up_threshold_ll
+chmod 0777 /proc/cpufreq/cpufreq_up_threshold_b
+chmod 0777 /proc/cpufreq/cpufreq_up_threshold_l
+chmod 0777 /proc/cpufreq/cpufreq_up_threshold_ll
+echo 98 > /proc/cpufreq/cpufreq_up_threshold_b
+echo 98 > /proc/cpufreq/cpufreq_up_threshold_l
+echo 98 > /proc/cpufreq/cpufreq_up_threshold_ll
 echo 0 > /proc/cpufreq/cpufreq_turbo_mode
 echo 0 > /proc/cpufreq/MT_CPU_DVFS_CCL/cpufreq_turbo_mode
 echo 0 > /proc/cpufreq/MT_CPU_DVFS_L/cpufreq_turbo_mode
 echo 0 > /proc/cpufreq/MT_CPU_DVFS_LL/cpufreq_turbo_mode
 echo 0 > /proc/cpufreq/MT_CPU_DVFS_B/cpufreq_turbo_mode
-chmod 0666 /proc/cpufreq/MT_CPU_DVFS_L/cpufreq_freq
+chmod 0777 /proc/cpufreq/MT_CPU_DVFS_L/cpufreq_freq
 echo 2117000 > /proc/cpufreq/MT_CPU_DVFS_L/cpufreq_freq
 #修改不同场景核心开启情况
 chmod 0777  /dev/cpuset/background/cpus
@@ -141,7 +141,7 @@ chmod 0777  /dev/cpuset/foreground/effective_cpus
 chmod 0777  /dev/cpuset/foreground/cpus_exclusive
 chmod 0777  /dev/cpuset/foreground/sched_load_balance
 
-echo "4-6,8-9" > /dev/cpuset/foreground/cpus
+echo "4-6,8" > /dev/cpuset/foreground/cpus
 echo "5-6,8" > /dev/cpuset/foreground/effective_cpus
 echo 0 > /dev/cpuset/foreground/cpus_exclusive
 echo 0 > /dev/cpuset/foreground/sched_load_balance
@@ -254,7 +254,7 @@ echo "0 0" > /proc/gpufreq/gpufreq_limited_low_batt_volume_ignore
 echo "13 315000" > /proc/gpufreq/gpufreq_limited_power
 echo "0 0" > /proc/gpufreq/gpufreq_limited_thermal_ignore
 echo 1 > /proc/gpufreq/gpufreq_volt_enable
-echo 237000 > /proc/gpufreq/gpufreq_opp_max_freq
+echo 166000 > /proc/gpufreq/gpufreq_opp_max_freq
 echo 0 > /proc/gpufreq/gpufreq_opp_freq
 #echo 166000 > /proc/gpufreq/gpufreq_opp_freq
 echo 0 > /proc/gpufreq/gpufreq_input_boost
