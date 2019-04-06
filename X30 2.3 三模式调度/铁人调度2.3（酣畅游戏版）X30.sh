@@ -41,19 +41,19 @@ chmod 0666 /sys/devices/system/cpu/cpufreq/interactive/boost
 echo 1 > /sys/devices/system/cpu/cpufreq/interactive/boost
 #调节升频时延
 chmod 0666 /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-echo "8000 1145000:10000 1237000:11000 1347000:12000 1421000:13000 1512000:14000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
+echo "8000 1145000:9000 1421000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
 #调节升频频率
 chmod 0777 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
 echo 1769000 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
 #调节升频所需负载条件
 chmod 0777 /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_freq
-echo 50 > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_freq
+echo 80> /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_freq
 #调节最小降频间隔
 chmod 0666 /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
-echo 30000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
+echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
 #调节负载频率对应关系
 chmod 0777 /sys/devices/system/cpu/cpufreq/interactive/target_loads
-echo "15 830000:25 1005000:35 1145000:55 1421000:75 1604000:85 1769000:91 1898000:99 25 873000:35 1200000:45 1472000:50 1694000:60 1917000:70 2117000:85 2157000:91 2197000:99 15 974000:25 1329000:35 1649000:45 1911000 50 2173000:70 2408000:85 2452000:91 2600000:99" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
+echo "15 830000:25 1145000:35 1421000:55 1604000:75 1769000:85 1898000:99 25 873000:35 1472000:45 1694000:50 1917000:60 2117000:70 2157000:85 2197000:99 15 974000:25 1329000:30 1649000:40 1911000 50 2173000:70 2408000:85 2452000:91 2600000:99" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
 #调节CPU负载采样间隔
 chmod 0666 /sys/devices/system/cpu/cpufreq/interactive/timer_slack
 chmod 0666 /sys/devices/system/cpu/cpufreq/interactive/timer_rate
@@ -61,7 +61,7 @@ echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/timer_slack
 echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/timer_rate
 #开启CPU提升I/O性能
 chmod 0777 /sys/devices/system/cpu/cpufreq/io_is_busy
-echo 1 > /sys/devices/system/cpu/cpufreq/io_is_busy
+echo 0 > /sys/devices/system/cpu/cpufreq/io_is_busy
 
 
 #开启hps_eas动态调节
@@ -78,13 +78,13 @@ echo 1> /proc/hps/big_task_enabled
 echo 1 > /proc/hps/heavy_task_enabled
 #设置降频阈值
 chmod 0666 /proc/hps/down_threshold
-echo 90 > /proc/hps/down_threshold
+echo 10 > /proc/hps/down_threshold
 #设置降频积极度（千万不能为零，不然重启……）
 chmod 0666 /proc/hps/down_times
 echo 4 > /proc/hps/down_times
 #设置升频阈值
 chmod 0666 /proc/hps/up_threshold
-echo 20 > /proc/hps/up_threshold
+echo 90 > /proc/hps/up_threshold
 #设置升频积极度（千万不能为零，不然重启……）
 chmod 0666 /proc/hps/up_times
 echo 6 > /proc/hps/up_times
@@ -94,8 +94,8 @@ chomd 0666 /proc/hps/idle_det_enabled
 chmod 0666 /proc/hps/rush_boost_enabled
 chmod 0666 /proc/hps/input_boost_enabled
 chmod 0666 /proc/hps/power_mode
-echo 90 > /proc/hps/idle_threshold
-echo 0 > /proc/hps/idle_det_enabled
+echo 5 > /proc/hps/idle_threshold
+echo 1 > /proc/hps/idle_det_enabled
 echo 1 > /proc/hps/rush_boost_enabled
 echo 1 > /proc/hps/input_boost_enabled
 echo 1 > /proc/hps/power_mode
@@ -124,11 +124,11 @@ chmod 0777 /proc/cpufreq/MT_CPU_DVFS_CCL/cpufreq_turbo_mode
 chmod 0777 /proc/cpufreq/MT_CPU_DVFS_L/cpufreq_turbo_mode
 chmod 0777 /proc/cpufreq/MT_CPU_DVFS_LL/cpufreq_turbo_mode
 chmod 0777 /proc/cpufreq/MT_CPU_DVFS_B/cpufreq_turbo_mode
-echo 0 > /proc/cpufreq/cpufreq_up_threshold_b
-echo 0 > /proc/cpufreq/cpufreq_up_threshold_l
-echo 0 > /proc/cpufreq/cpufreq_up_threshold_ll
+echo 90 > /proc/cpufreq/cpufreq_up_threshold_b
+echo 90 > /proc/cpufreq/cpufreq_up_threshold_l
+echo 90 > /proc/cpufreq/cpufreq_up_threshold_ll
 echo 1 > /proc/cpufreq/cpufreq_turbo_mode
-echo 1 > /proc/cpufreq/MT_CPU_DVFS_CCL/cpufreq_turbo_mode
+echo 0 > /proc/cpufreq/MT_CPU_DVFS_CCL/cpufreq_turbo_mode
 echo 1 > /proc/cpufreq/MT_CPU_DVFS_L/cpufreq_turbo_mode
 echo 1 > /proc/cpufreq/MT_CPU_DVFS_LL/cpufreq_turbo_mode
 echo 1 > /proc/cpufreq/MT_CPU_DVFS_B/cpufreq_turbo_mode
@@ -138,8 +138,8 @@ chmod 0777  /dev/cpuset/background/effective_cpus
 chmod 0777  /dev/cpuset/background/cpus_exclusive
 chmod 0777  /dev/cpuset/background/sched_load_balance
 
-echo "0-4" > /dev/cpuset/background/cpus
-echo "0-4" > /dev/cpuset/background/effective_cpus
+echo "0-3" > /dev/cpuset/background/cpus
+echo "0-3" > /dev/cpuset/background/effective_cpus
 echo 0 > /dev/cpuset/background/cpus_exclusive
 echo 0 > /dev/cpuset/background/sched_load_balance
 
@@ -148,8 +148,8 @@ chmod 0777  /dev/cpuset/foreground/effective_cpus
 chmod 0777  /dev/cpuset/foreground/cpus_exclusive
 chmod 0777  /dev/cpuset/foreground/sched_load_balance
 
-echo "0-9" > /dev/cpuset/foreground/cpus
-echo "0-9" > /dev/cpuset/foreground/effective_cpus
+echo "5-7" > /dev/cpuset/foreground/cpus
+echo "5-7" > /dev/cpuset/foreground/effective_cpus
 echo 0 > /dev/cpuset/foreground/cpus_exclusive
 echo 0 > /dev/cpuset/foreground/sched_load_balance
 
@@ -168,28 +168,28 @@ chmod 0777  /dev/cpuset/mzperf_cancel/effective_cpus
 chmod 0777  /dev/cpuset/mzperf_cancel/cpus_exclusive
 chmod 0777  /dev/cpuset/mzperf_cancel/sched_load_balance
 
-echo "0-7" > /dev/cpuset/mzperf_cancel/cpus
-echo "0-7" > /dev/cpuset/mzperf_cancel/effective_cpus
-echo 1 > /dev/cpuset/mzperf_cancel/cpus_exclusive
-echo 1 > /dev/cpuset/mzperf_cancel/sched_load_balance
+echo "0-2" > /dev/cpuset/mzperf_cancel/cpus
+echo "0-2" > /dev/cpuset/mzperf_cancel/effective_cpus
+echo 0 > /dev/cpuset/mzperf_cancel/cpus_exclusive
+echo 0 > /dev/cpuset/mzperf_cancel/sched_load_balance
 
 chmod 0777  /dev/cpuset/mzperf_ctrl/cpus
 chmod 0777  /dev/cpuset/mzperf_ctrl/effective_cpus
 chmod 0777  /dev/cpuset/mzperf_ctrl/cpus_exclusive
 chmod 0777  /dev/cpuset/mzperf_ctrl/sched_load_balance
 
-echo "0-7" > /dev/cpuset/mzperf_ctrl/cpus
-echo "0-7" > /dev/cpuset/mzperf_ctrl/effective_cpus
-echo 1 > /dev/cpuset/mzperf_ctrl/cpus_exclusive
-echo 1 > /dev/cpuset/mzperf_ctrl/sched_load_balance
+echo "1-3" > /dev/cpuset/mzperf_ctrl/cpus
+echo "1-3" > /dev/cpuset/mzperf_ctrl/effective_cpus
+echo 0 > /dev/cpuset/mzperf_ctrl/cpus_exclusive
+echo 0 > /dev/cpuset/mzperf_ctrl/sched_load_balance
 
 chmod 0777  /dev/cpuset/system-background/cpus
 chmod 0777  /dev/cpuset/system-background/effective_cpus
 chmod 0777  /dev/cpuset/system-background/cpus_exclusive
 chmod 0777  /dev/cpuset/system-background/sched_load_balance
 
-echo "0-4" > /dev/cpuset/system-background/cpus
-echo "0-4" > /dev/cpuset/system-background/effective_cpus
+echo "4-6" > /dev/cpuset/system-background/cpus
+echo "4-6" > /dev/cpuset/system-background/effective_cpus
 echo 1 > /dev/cpuset/system-background/cpus_exclusive
 echo 1 > /dev/cpuset/system-background/sched_load_balance
 
@@ -198,8 +198,8 @@ chmod 0777  /dev/cpuset/top-app/effective_cpus
 chmod 0777  /dev/cpuset/top-app/cpus_exclusive
 chmod 0777  /dev/cpuset/top-app/sched_load_balance
 
-echo "4-6,8" > /dev/cpuset/top-app/cpus
-echo "4-6,8" > /dev/cpuset/top-app/effective_cpus
+echo "8-9" > /dev/cpuset/top-app/cpus
+echo "8-9" > /dev/cpuset/top-app/effective_cpus
 echo 0 > /dev/cpuset/top-app/cpus_exclusive
 echo 0 > /dev/cpuset/top-app/sched_load_balance
 
@@ -224,7 +224,7 @@ echo 0 > /proc/cpufreq/MT_CPU_DVFS_L/cpufreq_oppidx
 echo 0 > /proc/cpufreq/cpufreq_oppidx
 
 chmod 0777 >/proc/hps/pwrseq
-echo "0 1 2" >/proc/hps/pwrseq
+echo "0 2 1" >/proc/hps/pwrseq
 
 chmod 0666 /sys/module/ged/parameters/enabled_cpu_boost
 chmod 0666 /sys/module/ged/parameters/enabled_gpu_boost
@@ -243,7 +243,7 @@ echo 1 > /sys/module/ged/parameters/gx_force_cpu_boost
 echo 1 > /sys/module/ged/parameters/boost_amp
 echo 1 > /sys/module/ged/parameters/boost_extra
 
-#设置gpu压制
+#设置gpu满频解放
 chmod 0666 /proc/gpufreq/gpufreq_debug
 chmod 0666 /proc/gpufreq/gpufreq_debug
 chmod 0777 /proc/gpufreq/gpufreq_limited_low_batt_volt_ignore

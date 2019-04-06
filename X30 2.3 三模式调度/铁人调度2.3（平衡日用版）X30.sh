@@ -75,10 +75,10 @@ chmod 0777 /proc/hps/big_task_enabled
 chmod 0777 /proc/hps/heavy_task_enabled
 echo 1 > /proc/hps/input_boost_cpu_num
 echo 1 > /proc/hps/big_task_enabled
-echo 0 > /proc/hps/heavy_task_enabled
+echo 1 > /proc/hps/heavy_task_enabled
 #设置降频阈值
 chmod 0666 /proc/hps/down_threshold
-echo 50 > /proc/hps/down_threshold
+echo 60 > /proc/hps/down_threshold
 #设置降频积极度（千万不能为零，不然重启……）
 chmod 0666 /proc/hps/down_times
 echo 4 > /proc/hps/down_times
@@ -94,9 +94,9 @@ chomd 0666 /proc/hps/idle_det_enabled
 chmod 0666 /proc/hps/rush_boost_enabled
 chmod 0666 /proc/hps/input_boost_enabled
 chmod 0666 /proc/hps/power_mode
-echo 5 > /proc/hps/idle_threshold
+echo 10 > /proc/hps/idle_threshold
 echo 1 > /proc/hps/idle_det_enabled
-echo 0 > /proc/hps/rush_boost_enabled
+echo 1 > /proc/hps/rush_boost_enabled
 echo 1 > /proc/hps/input_boost_enabled
 echo 0 > /proc/hps/power_mode
 #启用休眠
@@ -143,8 +143,8 @@ chmod 0777  /dev/cpuset/foreground/effective_cpus
 chmod 0777  /dev/cpuset/foreground/cpus_exclusive
 chmod 0777  /dev/cpuset/foreground/sched_load_balance
 
-echo "4-7" > /dev/cpuset/foreground/cpus
-echo "4-7" > /dev/cpuset/foreground/effective_cpus
+echo "5-7" > /dev/cpuset/foreground/cpus
+echo "5-7" > /dev/cpuset/foreground/effective_cpus
 echo 0 > /dev/cpuset/foreground/cpus_exclusive
 echo 0 > /dev/cpuset/foreground/sched_load_balance
 
@@ -163,8 +163,8 @@ chmod 0777  /dev/cpuset/mzperf_cancel/effective_cpus
 chmod 0777  /dev/cpuset/mzperf_cancel/cpus_exclusive
 chmod 0777  /dev/cpuset/mzperf_cancel/sched_load_balance
 
-echo "0-3" > /dev/cpuset/mzperf_cancel/cpus
-echo "0-3" > /dev/cpuset/mzperf_cancel/effective_cpus
+echo "0-2" > /dev/cpuset/mzperf_cancel/cpus
+echo "0-2" > /dev/cpuset/mzperf_cancel/effective_cpus
 echo 1 > /dev/cpuset/mzperf_cancel/cpus_exclusive
 echo 1 > /dev/cpuset/mzperf_cancel/sched_load_balance
 
@@ -173,8 +173,8 @@ chmod 0777  /dev/cpuset/mzperf_ctrl/effective_cpus
 chmod 0777  /dev/cpuset/mzperf_ctrl/cpus_exclusive
 chmod 0777  /dev/cpuset/mzperf_ctrl/sched_load_balance
 
-echo "0-3" > /dev/cpuset/mzperf_ctrl/cpus
-echo "0-3" > /dev/cpuset/mzperf_ctrl/effective_cpus
+echo "0-2" > /dev/cpuset/mzperf_ctrl/cpus
+echo "0-2" > /dev/cpuset/mzperf_ctrl/effective_cpus
 echo 1 > /dev/cpuset/mzperf_ctrl/cpus_exclusive
 echo 1 > /dev/cpuset/mzperf_ctrl/sched_load_balance
 
@@ -193,8 +193,8 @@ chmod 0777  /dev/cpuset/top-app/effective_cpus
 chmod 0777  /dev/cpuset/top-app/cpus_exclusive
 chmod 0777  /dev/cpuset/top-app/sched_load_balance
 
-echo "4-8" > /dev/cpuset/top-app/cpus
-echo "4-8" > /dev/cpuset/top-app/effective_cpus
+echo "4-6" > /dev/cpuset/top-app/cpus
+echo "4-6" > /dev/cpuset/top-app/effective_cpus
 echo 0 > /dev/cpuset/top-app/cpus_exclusive
 echo 0 > /dev/cpuset/top-app/sched_load_balance
 
