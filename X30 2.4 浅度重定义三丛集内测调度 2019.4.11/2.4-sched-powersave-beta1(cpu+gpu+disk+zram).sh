@@ -132,8 +132,8 @@ chmod 0777  /dev/cpuset/background/effective_cpus
 chmod 0777  /dev/cpuset/background/cpus_exclusive
 chmod 0777  /dev/cpuset/background/sched_load_balance
 
-echo "1-3" > /dev/cpuset/background/cpus
-echo "1-3" > /dev/cpuset/background/effective_cpus
+echo "0-3" > /dev/cpuset/background/cpus
+echo "0-3" > /dev/cpuset/background/effective_cpus
 echo 0 > /dev/cpuset/background/cpus_exclusive
 echo 0 > /dev/cpuset/background/sched_load_balance
 
@@ -142,8 +142,8 @@ chmod 0777  /dev/cpuset/foreground/effective_cpus
 chmod 0777  /dev/cpuset/foreground/cpus_exclusive
 chmod 0777  /dev/cpuset/foreground/sched_load_balance
 
-echo "4-6,8" > /dev/cpuset/foreground/cpus
-echo "4-6,8" > /dev/cpuset/foreground/effective_cpus
+echo "0-3,4-6,8" > /dev/cpuset/foreground/cpus
+echo "0-3,4-6,8" > /dev/cpuset/foreground/effective_cpus
 echo 0 > /dev/cpuset/foreground/cpus_exclusive
 echo 1 > /dev/cpuset/foreground/sched_load_balance
 
@@ -162,8 +162,8 @@ chmod 0777  /dev/cpuset/mzperf_cancel/effective_cpus
 chmod 0777  /dev/cpuset/mzperf_cancel/cpus_exclusive
 chmod 0777  /dev/cpuset/mzperf_cancel/sched_load_balance
 
-echo "0-2" > /dev/cpuset/mzperf_cancel/cpus
-echo "0-2" > /dev/cpuset/mzperf_cancel/effective_cpus
+echo "0-3" > /dev/cpuset/mzperf_cancel/cpus
+echo "0-3" > /dev/cpuset/mzperf_cancel/effective_cpus
 echo 0 > /dev/cpuset/mzperf_cancel/cpus_exclusive
 echo 0 > /dev/cpuset/mzperf_cancel/sched_load_balance
 
@@ -172,8 +172,8 @@ chmod 0777  /dev/cpuset/mzperf_ctrl/effective_cpus
 chmod 0777  /dev/cpuset/mzperf_ctrl/cpus_exclusive
 chmod 0777  /dev/cpuset/mzperf_ctrl/sched_load_balance
 
-echo "1-3" > /dev/cpuset/mzperf_ctrl/cpus
-echo "1-3" > /dev/cpuset/mzperf_ctrl/effective_cpus
+echo "0-3" > /dev/cpuset/mzperf_ctrl/cpus
+echo "0-3" > /dev/cpuset/mzperf_ctrl/effective_cpus
 echo 0 > /dev/cpuset/mzperf_ctrl/cpus_exclusive
 echo 0 > /dev/cpuset/mzperf_ctrl/sched_load_balance
 
@@ -182,20 +182,20 @@ chmod 0777  /dev/cpuset/system-background/effective_cpus
 chmod 0777  /dev/cpuset/system-background/cpus_exclusive
 chmod 0777  /dev/cpuset/system-background/sched_load_balance
 
-echo "2-3" > /dev/cpuset/system-background/cpus
-echo "2-3" > /dev/cpuset/system-background/effective_cpus
+echo "4-7" > /dev/cpuset/system-background/cpus
+echo "4-7" > /dev/cpuset/system-background/effective_cpus
 echo 0 > /dev/cpuset/system-background/cpus_exclusive
-echo 1 > /dev/cpuset/system-background/sched_load_balance
+echo 0 > /dev/cpuset/system-background/sched_load_balance
 
 chmod 0777  /dev/cpuset/top-app/cpus
 chmod 0777  /dev/cpuset/top-app/effective_cpus
 chmod 0777  /dev/cpuset/top-app/cpus_exclusive
 chmod 0777  /dev/cpuset/top-app/sched_load_balance
 
-echo "0-2,4-7,8" > /dev/cpuset/top-app/cpus
-echo "0-2,4-7,8" > /dev/cpuset/top-app/effective_cpus
+echo "4-7,8" > /dev/cpuset/top-app/cpus
+echo "4-7,8" > /dev/cpuset/top-app/effective_cpus
 echo 0 > /dev/cpuset/top-app/cpus_exclusive
-echo 1 > /dev/cpuset/top-app/sched_load_balance
+echo 0 > /dev/cpuset/top-app/sched_load_balance
 
 chmod 0777  /dev/cpuset/cpus
 chmod 0777  /dev/cpuset/effective_cpus
@@ -205,7 +205,7 @@ chmod 0777  /dev/cpuset/sched_load_balance
 echo "0-8" > /dev/cpuset/cpus
 echo "0-8" > /dev/cpuset/effective_cpus
 echo 0 > /dev/cpuset/cpus_exclusive
-echo 1 > /dev/cpuset/sched_load_balance
+echo 0 > /dev/cpuset/sched_load_balance
 
 #调节默认核心idx
 chmod 0777 /proc/cpufreq/MT_CPU_DVFS_B/cpufreq_oppidx
@@ -220,22 +220,27 @@ echo 5 > /proc/cpufreq/cpufreq_oppidx
 chmod 0777 >/proc/hps/pwrseq
 echo "2 0 1" >/proc/hps/pwrseq
 
+#moudle/ged
 chmod 0666 /sys/module/ged/parameters/enabled_cpu_boost
 chmod 0666 /sys/module/ged/parameters/enabled_gpu_boost
+chmod 0666 /sys/module/ged/parameters/ged_boost_enable
 chmod 0666 /sys/module/ged/parameters/gx_3D_benchmark_on
 chmod 0666 /sys/module/ged/parameters/gx_game_mode
 chmod 0777 /sys/module/ged/parameters/gx_dfps
 chmod 0666 /sys/module/ged/parameters/gx_force_cpu_boost
 chmod 0666 /sys/module/ged/parameters/boost_amp
 chmod 0666 /sys/module/ged/parameters/boost_extra
+chmod 0666 /sys/module/ged/parameters/cpu_boost_policy
 echo 1 > /sys/module/ged/parameters/enabled_cpu_boost
 echo 1 > /sys/module/ged/parameters/enabled_gpu_boost
+echo 1 > /sys/module/ged/parameters/ged_boost_enable
 echo 0 > /sys/module/ged/parameters/gx_3D_benchmark_on
 echo 0 > /sys/module/ged/parameters/gx_game_mode
 echo 40 > /sys/module/ged/parameters/gx_dfps
 echo 0 > /sys/module/ged/parameters/gx_force_cpu_boost
 echo 0 > /sys/module/ged/parameters/boost_amp
 echo 0 > /sys/module/ged/parameters/boost_extra
+echo 4 > /sys/module/ged/parameters/cpu_boost_policy
 
 #设置gpu压制
 chmod 0666 /proc/gpufreq/gpufreq_debug

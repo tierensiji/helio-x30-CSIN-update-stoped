@@ -223,22 +223,27 @@ echo 2 > /proc/cpufreq/cpufreq_oppidx
 chmod 0777 >/proc/hps/pwrseq
 echo "0 1 2" >/proc/hps/pwrseq
 
+#moudle/ged
 chmod 0666 /sys/module/ged/parameters/enabled_cpu_boost
 chmod 0666 /sys/module/ged/parameters/enabled_gpu_boost
+chmod 0666 /sys/module/ged/parameters/ged_boost_enable
 chmod 0666 /sys/module/ged/parameters/gx_3D_benchmark_on
 chmod 0666 /sys/module/ged/parameters/gx_game_mode
 chmod 0777 /sys/module/ged/parameters/gx_dfps
 chmod 0666 /sys/module/ged/parameters/gx_force_cpu_boost
 chmod 0666 /sys/module/ged/parameters/boost_amp
 chmod 0666 /sys/module/ged/parameters/boost_extra
+chmod 0666 /sys/module/ged/parameters/cpu_boost_policy
 echo 1 > /sys/module/ged/parameters/enabled_cpu_boost
 echo 1 > /sys/module/ged/parameters/enabled_gpu_boost
+echo 1 > /sys/module/ged/parameters/ged_boost_enable
 echo 0 > /sys/module/ged/parameters/gx_3D_benchmark_on
 echo 0 > /sys/module/ged/parameters/gx_game_mode
 echo 45 > /sys/module/ged/parameters/gx_dfps
 echo 0 > /sys/module/ged/parameters/gx_force_cpu_boost
-echo 1 > /sys/module/ged/parameters/boost_amp
-echo 1 > /sys/module/ged/parameters/boost_extra
+echo 0 > /sys/module/ged/parameters/boost_amp
+echo 0 > /sys/module/ged/parameters/boost_extra
+echo 4 > /sys/module/ged/parameters/cpu_boost_policy
 
 #设置gpu压制
 chmod 0666 /proc/gpufreq/gpufreq_debug
@@ -287,7 +292,7 @@ echo "deadline" > /sys/block/ram0/queue/scheduler
 chmod 0777 /sys/block/sda/queue/nr_requests
 chmod 0777 /sys/block/sdb/queue/nr_requests
 chmod 0777 /sys/block/sdc/queue/nr_requests
-chmod 0777  /sys/block/sda/queue/read_ahead_kb
+chmod 0777 /sys/block/sda/queue/read_ahead_kb
 chmod 0777 /sys/block/sdb/queue/read_ahead_kb
 chmod 0777 /sys/block/sdc/queue/read_ahead_kb
 echo 1024 > /sys/block/sda/queue/nr_requests
