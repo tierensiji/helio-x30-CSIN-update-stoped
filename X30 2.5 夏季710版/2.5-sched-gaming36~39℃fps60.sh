@@ -263,7 +263,7 @@ chmod 0777 /proc/gpufreq/gpufreq_input_boost
 chmod 0777 /d/ged/hal/fps_upper_bound
 echo 1 > /proc/gpufreq/gpufreq_limited_low_batt_volt_ignore
 echo 1 > /proc/gpufreq/gpufreq_limited_low_batt_volume_ignore
-echo 1 > /proc/gpufreq/gpufreq_limited_power
+echo "-1 850000" > /proc/gpufreq/gpufreq_limited_power
 echo 1 > /proc/gpufreq/gpufreq_limited_thermal_ignore
 echo 1 > /proc/gpufreq/gpufreq_volt_enable
 echo 850000 > /proc/gpufreq/gpufreq_opp_max_freq
