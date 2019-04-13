@@ -4,20 +4,20 @@ su
 
 #一款优秀的调度首先体现在核心控制上，滑稽
 #内测版暂时不做代码解释，节约时间，以最快速度，全力投入开发
-echo 1 > /proc/ppm/root_cluster
+echo 0 > /proc/ppm/root_cluster
 echo 0 > /proc/ppm/policy/hica_is_limit_big_freq
-echo "0 0" > /proc/ppm/policy/userlimit_min_cpu_core
-echo "1 1" > /proc/ppm/policy/userlimit_min_cpu_core
+echo "0 2" > /proc/ppm/policy/userlimit_min_cpu_core
+echo "1 0" > /proc/ppm/policy/userlimit_min_cpu_core
 echo "2 0" > /proc/ppm/policy/userlimit_min_cpu_core
-echo "0 0" > /proc/ppm/policy/userlimit_max_cpu_core
-echo "1 4" > /proc/ppm/policy/userlimit_max_cpu_core
-echo "2 2" > /proc/ppm/policy/userlimit_max_cpu_core
-echo "0 0" > /proc/ppm/policy/userlimit_min_cpu_freq
+echo "0 4" > /proc/ppm/policy/userlimit_max_cpu_core
+echo "1 2" > /proc/ppm/policy/userlimit_max_cpu_core
+echo "2 1" > /proc/ppm/policy/userlimit_max_cpu_core
+echo "0 249000" > /proc/ppm/policy/userlimit_min_cpu_freq
 echo "1 279000" > /proc/ppm/policy/userlimit_min_cpu_freq
 echo "2 328000" > /proc/ppm/policy/userlimit_min_cpu_freq
-echo "0 0" > /proc/ppm/policy/userlimit_max_cpu_freq
-echo "1 2197000" > /proc/ppm/policy/userlimit_max_cpu_freq
-echo "2 2600000" > /proc/ppm/policy/userlimit_max_cpu_freq
+echo "0 1863000" > /proc/ppm/policy/userlimit_max_cpu_freq
+echo "1 2157000" > /proc/ppm/policy/userlimit_max_cpu_freq
+echo "2 2452000" > /proc/ppm/policy/userlimit_max_cpu_freq
 
 #开启热插拔
 echo 1 > /proc/hps/enabled

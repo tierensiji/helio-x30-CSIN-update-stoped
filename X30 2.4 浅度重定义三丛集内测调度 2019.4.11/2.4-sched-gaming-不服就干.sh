@@ -1,8 +1,22 @@
 su
-#2.3版本更新，根据酷友的反馈，做三模式切换版，做一些极限版。
+#2.4版本更新，根据酷友的反馈，做三模式切换版，做一些极限版。
 #开始时间：2019年4月6日 19：58
 #作者：铁人司机——一个热爱安卓代码的北中医学生。
-
+#听说你们要超爽的游戏体验？不服就干！直接十核全开OK？
+echo "-1" > /proc/ppm/root_cluster
+echo 0 > /proc/ppm/policy/hica_is_limit_big_freq
+echo "0 4" > /proc/ppm/policy/userlimit_min_cpu_core
+echo "1 4" > /proc/ppm/policy/userlimit_min_cpu_core
+echo "2 2" > /proc/ppm/policy/userlimit_min_cpu_core
+echo "0 4" > /proc/ppm/policy/userlimit_max_cpu_core
+echo "1 4" > /proc/ppm/policy/userlimit_max_cpu_core
+echo "2 2" > /proc/ppm/policy/userlimit_max_cpu_core
+echo "0 1145000" > /proc/ppm/policy/userlimit_min_cpu_freq
+echo "1 1324000" > /proc/ppm/policy/userlimit_min_cpu_freq
+echo "2 1649000" > /proc/ppm/policy/userlimit_min_cpu_freq
+echo "0 1898000" > /proc/ppm/policy/userlimit_max_cpu_freq
+echo "1 2197000" > /proc/ppm/policy/userlimit_max_cpu_freq
+echo "2 2600000" > /proc/ppm/policy/userlimit_max_cpu_freq
 #开启热插拔
 echo 1 > /proc/hps/enabled
 #设定interactive为当前调度器
@@ -41,10 +55,10 @@ chmod 0666 /sys/devices/system/cpu/cpufreq/interactive/boost
 echo 1 > /sys/devices/system/cpu/cpufreq/interactive/boost
 #调节升频时延
 chmod 0666 /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-echo "78000 1145000:88000 98000:128000 1347000:108000 1421000:108000 1512000:108000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
+echo "18000 1145000:28000 98000:28000 1347000:28000 1421000:38000 1512000:138000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
 #调节升频频率
 chmod 0777 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-echo 1898000 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
+echo 2197000 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
 #调节升频所需负载条件
 chmod 0777 /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
 echo 40 > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
@@ -61,7 +75,7 @@ echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/timer_slack
 echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/timer_rate
 #开启CPU提升I/O性能
 chmod 0777 /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-echo 1 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
+echo 0 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
 
 
 #开启hps_eas动态调节
@@ -87,7 +101,7 @@ chmod 0666 /proc/hps/up_threshold
 echo 20 > /proc/hps/up_threshold
 #设置升频积极度（千万不能为零，不然重启……）
 chmod 0666 /proc/hps/up_times
-echo 6 > /proc/hps/up_times
+echo 8 > /proc/hps/up_times
 #禁用加速
 chmod 0666 /proc/hps/idle_threshold
 chomd 0666 /proc/hps/idle_det_enabled
@@ -105,7 +119,7 @@ chmod 0666 /proc/hps/smart_det_enabled
 chmod 0666 /sys/power/autosleep
 chomd 0666 /sys/power/pm_freeze_timeout
 echo 1 > /proc/hps/suspend_enabled
-echo 1 > /proc/hps/smart_det_enabled
+echo 0 > /proc/hps/smart_det_enabled
 echo 1 > /sys/power/autosleep
 echo 3000 > /sys/power/pm_freeze_timeout
 
@@ -240,13 +254,13 @@ chmod 0666 /sys/module/ged/parameters/cpu_boost_policy
 echo 1 > /sys/module/ged/parameters/enabled_cpu_boost
 echo 1 > /sys/module/ged/parameters/enabled_gpu_boost
 echo 1 > /sys/module/ged/parameters/ged_boost_enable
-echo 0 > /sys/module/ged/parameters/gx_3D_benchmark_on
-echo 0 > /sys/module/ged/parameters/gx_game_mode
+echo 1 > /sys/module/ged/parameters/gx_3D_benchmark_on
+echo 1 > /sys/module/ged/parameters/gx_game_mode
 echo 60 > /sys/module/ged/parameters/gx_dfps
-echo 0 > /sys/module/ged/parameters/gx_force_cpu_boost
-echo 0 > /sys/module/ged/parameters/boost_amp
-echo 0 > /sys/module/ged/parameters/boost_extra
-echo 4 > /sys/module/ged/parameters/cpu_boost_policy
+echo 1 > /sys/module/ged/parameters/gx_force_cpu_boost
+echo 1 > /sys/module/ged/parameters/boost_amp
+echo 1 > /sys/module/ged/parameters/boost_extra
+echo 8 > /sys/module/ged/parameters/cpu_boost_policy
 
 #设置gpu满频解放
 chmod 0666 /proc/gpufreq/gpufreq_debug
@@ -260,13 +274,13 @@ chmod 0777 /proc/gpufreq/gpufreq_opp_max_freq
 chmod 0777 /proc/gpufreq/gpufreq_opp_freq
 chmod 0777 /proc/gpufreq/gpufreq_input_boost
 chmod 0777 /d/ged/hal/fps_upper_bound
-echo "0 0" > /proc/gpufreq/gpufreq_limited_low_batt_volt_ignore
-echo "0 0" > /proc/gpufreq/gpufreq_limited_low_batt_volume_ignore
-echo "0 780000" > /proc/gpufreq/gpufreq_limited_power
-echo "0 0" > /proc/gpufreq/gpufreq_limited_thermal_ignore
+echo 1 > /proc/gpufreq/gpufreq_limited_low_batt_volt_ignore
+echo 1 > /proc/gpufreq/gpufreq_limited_low_batt_volume_ignore
+echo "-1 850000" > /proc/gpufreq/gpufreq_limited_power
+echo 1 > /proc/gpufreq/gpufreq_limited_thermal_ignore
 echo 1 > /proc/gpufreq/gpufreq_volt_enable
-echo 780000 > /proc/gpufreq/gpufreq_opp_max_freq
-echo 780000 > /proc/gpufreq/gpufreq_opp_freq
+echo 850000 > /proc/gpufreq/gpufreq_opp_max_freq
+echo 850000 > /proc/gpufreq/gpufreq_opp_freq
 echo 0 > /proc/gpufreq/gpufreq_opp_freq
 echo 1 > /proc/gpufreq/gpufreq_input_boost
 echo 60 > /d/ged/hal/fps_upper_bound
