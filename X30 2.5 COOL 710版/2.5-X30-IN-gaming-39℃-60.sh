@@ -280,7 +280,6 @@ echo 60 > /d/ged/hal/fps_upper_bound
 echo 1610612736 > /sys/block/zram0/disksize
 busybox mkswap /dev/block/zram0
 busybox swapon /dev/block/zram0
-echo 0 > /proc/sys/vm/swappiness
 
 #修改硬盘读写
 chmod 0777 /sys/block/sda/queue/scheduler
@@ -313,12 +312,16 @@ chmod 0777 /proc/sys/vm/dirty_writeback_centisecs
 chmod 0777 /proc/sys/vm/dirtytime_expire_seconds
 chmod 0777 /proc/sys/vm/swappiness
 chmod 0777 /proc/sys/vm/vfs_cache_pressure
+chmod 0755 /proc/sys/vm/min_free_kbytes
+chmod 0755 /extra_free_kbytes
 echo 10 > /proc/sys/vm/dirty_ratio
 echo 5 > /proc/sys/vm/dirty_background_ratio
-echo 400 > /proc/sys/vm/dirty_writeback_centisecs
-echo 1000 > /proc/sys/vm/dirtytime_expire_seconds
-echo 0 > /proc/sys/vm/swappiness
+echo 1500 > /proc/sys/vm/dirty_writeback_centisecs
+echo 200 > /proc/sys/vm/dirtytime_expire_seconds
+echo 100 > /proc/sys/vm/swappiness
 echo 200 > /proc/sys/vm/vfs_cache_pressure
+echo 10000 > /proc/sys/vm/min_free_kbytes
+echo 30000 > /extra_free_kbytes
 
 #开启doze
 #关闭Doze模式
