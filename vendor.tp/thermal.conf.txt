@@ -1,0 +1,150 @@
+Sec_Chip_Name
+MT6799
+Sec_End
+Sec_CD_TM
+/proc/mtkcooler/mtktscpu-sysrst
+
+/proc/mtkcooler/mtk-cl-cam-urgent
+
+/proc/mtkcooler/mtk-cl-cam01
+EXIT 10000
+/proc/mtkcooler/cpu_adaptive_0
+EXIT 4000
+/proc/mtkcooler/cpu_adaptive_1
+EXIT 3000 mtktsAP 48999
+/proc/mtkcooler/mtktspmic-sysrst
+
+/proc/mtkcooler/mtktspmic1-sysrst
+
+/proc/mtkcooler/mtk-cl-shutdown02
+
+/proc/mtkcooler/mtktspa-sysrst
+
+/proc/mtkcooler/mtktscharger-sysrst
+
+/proc/mtkcooler/mtktswmt-sysrst
+
+/proc/mtkcooler/mtk-cl-shutdown00
+
+/proc/mtkcooler/mtk-cl-cam00
+EXIT 7999
+/proc/mtkcooler/mtk-cl-bcct00
+EXIT 999
+/proc/mtkcooler/abcct_lcmoff
+EXIT 999
+/proc/mtkcooler/abcct
+EXIT 999
+/proc/mtkcooler/mtk-cl-shutdown01
+
+/proc/mtkcooler/mtk-cl-kshutdown00
+
+/proc/mtkcooler/mtk-cl-kshutdown01
+
+/proc/mtkcooler/mtk-cl-kshutdown02
+
+/proc/mtkcooler/mtk-cl-kshutdown03
+
+/proc/mtkcooler/mtk-cl-kshutdown04
+
+/proc/mtkcooler/mtk-cl-backlight01
+
+/proc/mtkcooler/mtk-cl-backlight02
+
+/proc/mtkcooler/mtk-cl-backlight03
+
+Sec_End
+Sec_ITP
+/proc/driver/thermal/tzbts_param
+PUP_R 390000 PUP_VOLT 1800 OVER_CRITICAL_L 4251000 NTC_TABLE 6 0
+/proc/driver/thermal/tzbtspa_param
+PUP_R 390000 PUP_VOLT 1800 OVER_CRITICAL_L 4251000 NTC_TABLE 6 1
+/proc/driver/thermal/clbcct
+0 1000 500 0
+/proc/driver/thermal/clatm_setting
+0 2000 5 10 0 560 0 300 0
+/proc/driver/thermal/clatm_setting
+1 1200 5 10 0 320 750 150 500
+/proc/driver/thermal/clmutt
+0 400 100 100 200 100 6000 100 25500
+/proc/driver/thermal/clctm
+2 70000 55000 42999 45999 65000 52000 284995 5000 251313 4333 500 500 13500
+/proc/driver/thermal/clabcct
+46000 1000 20000 5 2000 0 0 3000 3000 1 5000 2000
+/proc/driver/thermal/clabcct_lcmoff
+1 53000 1000 20000 5 3000 500 5000 2000
+/proc/driver/thermal/clatm_sspm
+1
+Sec_End
+Sec_RTP
+/proc/driver/thermal/tzcpu
+5 117000 0 mtktscpu-sysrst 105000 0 mtk-cl-cam-urgent 95000 0 mtk-cl-cam01 55000 0 cpu_adaptive_0 53000 0 cpu_adaptive_1 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 200
+/proc/driver/thermal/tzpmic
+1 145000 0 mtktspmic-sysrst 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+/proc/driver/thermal/tzpmic1
+1 145000 0 mtktspmic1-sysrst 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+/proc/driver/thermal/tzbattery
+1 65000 0 mtk-cl-shutdown02 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+/proc/driver/thermal/tzpa
+1 120000 0 mtktspa-sysrst 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+/proc/driver/thermal/tzcharger
+1 120000 0 mtktscharger-sysrst 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 5000
+/proc/driver/thermal/tzwmt
+1 120000 0 mtktswmt-sysrst 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+/proc/driver/thermal/tzbts
+5 100000 0 mtk-cl-shutdown00 60000 0 mtk-cl-cam00 58999 0 mtk-cl-bcct00 53000 0 abcct_lcmoff 47000 0 abcct 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+/proc/driver/thermal/tzbtspa
+1 100000 0 mtk-cl-shutdown01 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+/proc/driver/thermal/tzts1
+1 150000 0 mtk-cl-kshutdown00 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+/proc/driver/thermal/tzts2
+1 150000 0 mtk-cl-kshutdown01 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+/proc/driver/thermal/tzts3
+1 150000 0 mtk-cl-kshutdown02 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+/proc/driver/thermal/tzts4
+1 150000 0 mtk-cl-kshutdown03 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+/proc/driver/thermal/tzts5
+1 150000 0 mtk-cl-kshutdown04 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+/proc/driver/thermal/tzts6
+1 150000 0 mtk-cl-backlight01 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+/proc/driver/thermal/tzts7
+1 150000 0 mtk-cl-backlight02 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+/proc/driver/thermal/tzts8
+1 150000 0 mtk-cl-backlight03 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+Sec_End
+Sec_TZ_TM
+/proc/mtktz/mtktscpu
+ma_len 1 
+/proc/mtktz/mtktspmic
+ma_len 4 
+/proc/mtktz/mtktspmic1
+ma_len 4 
+/proc/mtktz/mtktsbattery
+ma_len 1 
+/proc/mtktz/mtktspa
+ma_len 1 
+/proc/mtktz/mtktscharger
+ma_len 1 
+/proc/mtktz/mtktswmt
+ma_len 1 
+/proc/mtktz/mtktsAP
+ma_len 1 
+/proc/mtktz/mtktsbtsmdpa
+ma_len 1 
+/proc/mtktz/mtkts1
+ma_len 1 
+/proc/mtktz/mtkts2
+ma_len 1 
+/proc/mtktz/mtkts3
+ma_len 1 
+/proc/mtktz/mtkts4
+ma_len 1 
+/proc/mtktz/mtkts5
+ma_len 1 
+/proc/mtktz/mtkts6
+ma_len 1 
+/proc/mtktz/mtkts7
+ma_len 1 
+/proc/mtktz/mtkts8
+ma_len 1 
+Sec_End
+EOF

@@ -18,16 +18,9 @@ echo "2 974000" > /proc/ppm/policy/userlimit_min_cpu_freq
 echo "0 1512000" > /proc/ppm/policy/userlimit_max_cpu_freq
 echo "1 1818000" > /proc/ppm/policy/userlimit_max_cpu_freq
 echo "2 2318000" > /proc/ppm/policy/userlimit_max_cpu_freq
-
 #开启热插拔
 echo 1 > /proc/hps/enabled
 #设定sched为当前调度器
-chmod 0755 /sys/devices/system/cpu/cpufreq/poliocy0/scaling_governor
-chmod 0755 /sys/devices/system/cpu/cpufreq/poliocy4/scaling_governor
-chmod 0755 /sys/devices/system/cpu/cpufreq/poliocy8/scaling_governor
-echo sched > /sys/devices/system/cpu/cpufreq/poliocy0/scaling_governor
-echo sched > /sys/devices/system/cpu/cpufreq/poliocy4/scaling_governor
-echo sched > /sys/devices/system/cpu/cpufreq/poliocy8/scaling_governor
 echo sched > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 echo sched > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
 echo sched > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
@@ -40,7 +33,6 @@ echo sched > /sys/devices/system/cpu/cpu8/cpufreq/scaling_governor
 echo sched > /sys/devices/system/cpu/cpu9/cpufreq/scaling_governor
 chmod 0755 /sys/devices/system/cpu/power/autosuspend_delay_ms
 echo 1000 > /sys/devices/system/cpu/power/autosuspend_delay_ms
-
 #开启hps_eas动态调节
 echo 1 > /proc/hps/eas_enabled
 #限制boost核心数量
@@ -64,7 +56,6 @@ chmod 0755 /proc/hps/up_times
 echo 1 > /proc/hps/up_times
 #禁用加速
 chmod 0755 /proc/hps/idle_threshold
-chomd 0755 /proc/hps/idle_det_enabled
 chmod 0755 /proc/hps/rush_boost_enabled
 chmod 0755 /proc/hps/input_boost_enabled
 chmod 0755 /proc/hps/power_mode
@@ -74,7 +65,6 @@ echo 1 > /proc/hps/rush_boost_enabled
 echo 1 > /proc/hps/input_boost_enabled
 echo 2 > /proc/hps/power_mode
 #启用休眠
-chmod 0755 /proc/hps/suspend_enabled
 chmod 0755 /proc/hps/smart_det_enabled
 chmod 0755 /sys/power/autosleep
 chomd 0755 /sys/power/pm_freeze_timeout
@@ -82,19 +72,16 @@ echo 1 > /proc/hps/suspend_enabled
 echo 0 > /proc/hps/smart_det_enabled
 echo 1 > /sys/power/autosleep
 echo 4000 > /sys/power/pm_freeze_timeout
-
 #修改动态机制
 echo 0 > /proc/cpufreq/cpufreq_sched_disable
 echo 0 > /proc/cpufreq/MT_CPU_DVFS_B/cpufreq_sched_disable
-echo 0 > /proc/cpufreq/MT_CPU_DVFS_CCL/cpufreq_sched_disable
-echo 0 > /proc/cpufreq/MT_CPU_DVFS_L/cpufreq_sched_disable
 echo 0 > /proc/cpufreq/MT_CPU_DVFS_LL/cpufreq_sched_disable
+echo 0 > /proc/cpufreq/MT_CPU_DVFS_L/cpufreq_sched_disable
 #设置升频阈值
 chmod 0755 /proc/cpufreq/cpufreq_up_threshold_b
 chmod 0755 /proc/cpufreq/cpufreq_up_threshold_l
 chmod 0755 /proc/cpufreq/cpufreq_up_threshold_ll
 chmod 0755 /proc/cpufreq/cpufreq_turbo_mode
-chmod 0755 /proc/cpufreq/MT_CPU_DVFS_CCL/cpufreq_turbo_mode
 chmod 0755 /proc/cpufreq/MT_CPU_DVFS_L/cpufreq_turbo_mode
 chmod 0755 /proc/cpufreq/MT_CPU_DVFS_LL/cpufreq_turbo_mode
 chmod 0755 /proc/cpufreq/MT_CPU_DVFS_B/cpufreq_turbo_mode
@@ -102,12 +89,9 @@ echo 80 > /proc/cpufreq/cpufreq_up_threshold_b
 echo 80 > /proc/cpufreq/cpufreq_up_threshold_l
 echo 80 > /proc/cpufreq/cpufreq_up_threshold_ll
 echo 1 > /proc/cpufreq/cpufreq_turbo_mode
-echo 1 > /proc/cpufreq/MT_CPU_DVFS_CCL/cpufreq_turbo_mode
 echo 1 > /proc/cpufreq/MT_CPU_DVFS_L/cpufreq_turbo_mode
 echo 1 > /proc/cpufreq/MT_CPU_DVFS_LL/cpufreq_turbo_mode
 echo 1 > /proc/cpufreq/MT_CPU_DVFS_B/cpufreq_turbo_mode
-
-
 #调节默认核心idx
 chmod 0755 /proc/cpufreq/MT_CPU_DVFS_B/cpufreq_oppidx
 chmod 0755 /proc/cpufreq/MT_CPU_DVFS_LL/cpufreq_oppidx
@@ -120,10 +104,7 @@ echo 5 > /proc/cpufreq/cpufreq_oppidx
 #修改作用顺序
 chmod 0755 >/proc/hps/pwrseq
 echo "2 0 1" >/proc/hps/pwrseq
-
 #moudle/ged
-chmod 0755 /sys/module/ged/parameters/enabled_cpu_boost
-chmod 0755 /sys/module/ged/parameters/enabled_gpu_boost
 chmod 0755 /sys/module/ged/parameters/ged_boost_enable
 chmod 0755 /sys/module/ged/parameters/gx_3D_benchmark_on
 chmod 0755 /sys/module/ged/parameters/gx_game_mode
@@ -132,8 +113,6 @@ chmod 0755 /sys/module/ged/parameters/gx_force_cpu_boost
 chmod 0755 /sys/module/ged/parameters/boost_amp
 chmod 0755 /sys/module/ged/parameters/boost_extra
 chmod 0755 /sys/module/ged/parameters/cpu_boost_policy
-echo 1 > /sys/module/ged/parameters/enabled_cpu_boost
-echo 1 > /sys/module/ged/parameters/enabled_gpu_boost
 echo 1 > /sys/module/ged/parameters/ged_boost_enable
 echo 0 > /sys/module/ged/parameters/gx_3D_benchmark_on
 echo 0 > /sys/module/ged/parameters/gx_game_mode
@@ -142,7 +121,6 @@ echo 0 > /sys/module/ged/parameters/gx_force_cpu_boost
 echo 0 > /sys/module/ged/parameters/boost_amp
 echo 0 > /sys/module/ged/parameters/boost_extra
 echo 8 > /sys/module/ged/parameters/cpu_boost_policy
-
 #设置gpu压制
 chmod 0755 /proc/gpufreq/gpufreq_debug
 chmod 0755 /proc/gpufreq/gpufreq_debug
@@ -165,18 +143,11 @@ echo 166000 > /proc/gpufreq/gpufreq_opp_freq
 echo 0 > /proc/gpufreq/gpufreq_opp_freq
 echo 1 > /proc/gpufreq/gpufreq_input_boost
 echo 45 > /d/ged/hal/fps_upper_bound
-
-#开启ksm
-busybox mkdir /sys/kernel/mm/ksm
-busybox touch /sys/kernel/mm/ksm/run
-echo 1 > /sys/kernel/mm/ksm/run
 #开启zram
 echo 1610612736 > /sys/block/zram0/disksize
 busybox mkswap /dev/block/zram0
 busybox swapon /dev/block/zram0
-chmod 0755 /proc/sys/vm/swappiness
 echo 100 > /proc/sys/vm/swappiness
-
 #优化SD调度
 chmod 0755 /sys/block/sda/queue/scheduler
 chmod 0755 /sys/block/sdb/queue/scheduler
@@ -200,16 +171,7 @@ echo 1024 > /sys/block/sdc/queue/nr_requests
 echo 1024 > /sys/block/sda/queue/read_ahead_kb
 echo 1024 > /sys/block/sdb/queue/read_ahead_kb
 echo 1024 > /sys/block/sdc/queue/read_ahead_kb
-
 #优化ZRAM和SWAP
-chmod 0755 /proc/sys/vm/dirty_ratio
-chmod 0755 /proc/sys/vm/dirty_background_ratio
-chmod 0755 /proc/sys/vm/dirty_writeback_centisecs
-chmod 0755 /proc/sys/vm/dirtytime_expire_seconds
-chmod 0755 /proc/sys/vm/swappiness
-chmod 0755 /proc/sys/vm/vfs_cache_pressure
-chmod 0755 /proc/sys/vm/min_free_kbytes
-chmod 0755 /extra_free_kbytes
 echo 10 > /proc/sys/vm/dirty_ratio
 echo 5 > /proc/sys/vm/dirty_background_ratio
 echo 1500 > /proc/sys/vm/dirty_writeback_centisecs
@@ -217,8 +179,6 @@ echo 200 > /proc/sys/vm/dirtytime_expire_seconds
 echo 100 > /proc/sys/vm/swappiness
 echo 200 > /proc/sys/vm/vfs_cache_pressure
 echo 10000 > /proc/sys/vm/min_free_kbytes
-echo 30000 > /extra_free_kbytes
-
 #开启doze
 #关闭Doze模式
 #dumpsys deviceidle disable 
@@ -231,7 +191,5 @@ echo 30000 > /extra_free_kbytes
 #dumpsys deviceidle force-idle
 #dumpsys battery unplug 
 #am set-inactive 
-
-
 #POWERED BY 铁人司机
-#完成日期：2019年4月14日 15:15
+#完成日期：2019年4月15日 11:29
