@@ -1,0 +1,7 @@
+①在/system/bin/install-recovery.sh中的末尾空几行，写入busybox sleep 60s换行再写sh ./data/app/28CS35.sh,记得把压缩包里的28CS35.sh脚本放到/data/app
+
+②在/system/build.prop里搜索perfserv，定位到一行ro.mtk_perfservice_support=1，把1改成0，重启
+
+③把压缩包里的温控thermal.conf移动到/vendor/etc/.tp文件夹下覆盖原文件，重启
+
+建议三步一次做完然后重启，节省一次重启步骤

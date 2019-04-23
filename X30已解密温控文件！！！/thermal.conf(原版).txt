@@ -77,7 +77,7 @@ PUP_R 390000 PUP_VOLT 1800 OVER_CRITICAL_L 4251000 NTC_TABLE 6 1
 Sec_End
 Sec_RTP
 /proc/driver/thermal/tzcpu
-5 117000 0 mtktscpu-sysrst 105000 0 mtk-cl-cam-urgent 95000 0 mtk-cl-cam01 60000 0 cpu_adaptive_0 58000 0 cpu_adaptive_1 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 200
+5 117000 0 mtktscpu-sysrst 105000 0 mtk-cl-cam-urgent 95000 0 mtk-cl-cam01 55000 0 cpu_adaptive_0 53000 0 cpu_adaptive_1 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 200
 /proc/driver/thermal/tzpmic
 1 145000 0 mtktspmic-sysrst 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
 /proc/driver/thermal/tzpmic1
@@ -91,7 +91,7 @@ Sec_RTP
 /proc/driver/thermal/tzwmt
 1 120000 0 mtktswmt-sysrst 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
 /proc/driver/thermal/tzbts
-5 100000 0 mtk-cl-shutdown00 62000 0 mtk-cl-cam00 58999 0 mtk-cl-bcct00 56000 0 abcct_lcmoff 50000 0 abcct 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
+5 100000 0 mtk-cl-shutdown00 55000 0 mtk-cl-cam00 54999 0 mtk-cl-bcct00 50000 0 abcct_lcmoff 43000 0 abcct 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
 /proc/driver/thermal/tzbtspa
 1 100000 0 mtk-cl-shutdown01 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 0 0 no-cooler 1000
 /proc/driver/thermal/tzts1
